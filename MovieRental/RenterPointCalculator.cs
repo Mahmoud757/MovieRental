@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MovieRental
@@ -15,14 +16,18 @@ namespace MovieRental
 
         public int CalculatePoints()
         {
-            int frequentRenterPoints = 0;
-            foreach (Rental each in rentals)
+            return rentals.Sum(each => CalculatePointsForRental(each));
+        }
+
+        private int CalculatePointsForRental(Rental rental)
+        {
+            int points = 1;
+
+            if (rental.Movie.PriceCode == Movie.NEW_RELEASE && rental.DaysRented > 1)
             {
-                frequentRenterPoints++;
-                if ((each.Movie.PriceCode == Movie.NEW_RELEASE) && each.DaysRented > 1)
-                    frequentRenterPoints++;
+                points++;
             }
-            return frequentRenterPoints;
+            return points;
         }
     }
 }
