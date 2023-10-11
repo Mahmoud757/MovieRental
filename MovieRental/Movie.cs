@@ -2,7 +2,7 @@ using System;
 
 namespace MovieRental
 {
-    public class Movie
+    public record Movie
     {
         public String Title { get; set; }
         public MovieTypeEnum PriceCode { get; set; }
