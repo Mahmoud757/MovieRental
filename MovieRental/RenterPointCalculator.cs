@@ -22,8 +22,7 @@ namespace MovieRental
         private int CalculatePointsForRental(Rental rental)
         {
             int points = 1;
-
-            if (rental.Movie.PriceCode == Movie.NEW_RELEASE && rental.DaysRented > 1)
+            if (rental.Movie.PriceCode == MovieTypeEnum.NEW_RELEASE && rental.DaysRented > 1)
             {
                 points++;
             }

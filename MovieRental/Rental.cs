@@ -17,13 +17,13 @@ namespace MovieRental
 
             switch (Movie.PriceCode)
             {
-                case Movie.REGULAR:
+                case MovieTypeEnum.REGULAR:
                     pricingStrategy = new RegularPricingStrategy();
                     break;
-                case Movie.NEW_RELEASE:
+                case MovieTypeEnum.NEW_RELEASE:
                     pricingStrategy = new NewReleasePricingStrategy();
                     break;
-                case Movie.CHILDRENS:
+                case MovieTypeEnum.CHILDRENS:
                     pricingStrategy = new ChildrenPricingStrategy();
                     break;
             }
